@@ -1,0 +1,13 @@
+<h2>Characters</h2>
+<div class="flex-box">
+  <ul class="flex-list">
+    <li *ngFor="let character of characters" 
+    [class.selected]="character === selectedCharacter"
+    (click)="onSelect(character)">
+        <img src="..\assets\graphics\icons\{{character.fileName}}"><br>
+    </li>
+  </ul>
+</div>
+
+
+<app-player [character]="selectedCharacter"></app-player>

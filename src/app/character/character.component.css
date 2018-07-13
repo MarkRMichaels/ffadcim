@@ -1,0 +1,35 @@
+/* HeroesComponent's private CSS styles */
+
+.flex-box {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    display: flex;
+    width: 296px;
+    background-color: rgb(219, 220, 255) !important;
+}
+
+.flex-list {
+    list-style-type: none;
+    background-color: rgb(31, 210, 255) !important;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+.flex-list li {
+    cursor: pointer;
+    position: relative;
+    background-color: rgb(157, 207, 255);
+  }
+ 
+.flex-list img:hover {
+    /* make this player order color */
+    background-color: rgb(0, 65, 161);
+}
+
+.flex-list img {
+    padding: 5px;
+}
+

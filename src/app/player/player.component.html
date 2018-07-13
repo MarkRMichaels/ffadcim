@@ -1,0 +1,238 @@
+<!-- <span>
+    Player1:
+    <input [(ngModel)]="players[0].name" placeholder="Player1" />
+</span>
+<span>
+    Player2:
+    <input [(ngModel)]="players[1].name" placeholder="Player2" />
+</span>
+<span>
+    Player3:
+    <input [(ngModel)]="players[2].name" placeholder="Player3" />
+</span>
+<span>
+    Player4:
+    <input [(ngModel)]="players[3].name" placeholder="Player4" />
+</span> -->
+
+<ul class="crews-box">
+    <div class="crew0" *ngIf="numberOfPlayers > 0">
+        <li>
+            <div *ngIf="players[0]">
+                <h2>{{players[0].name}}</h2>
+            </div>
+            <h3>General:
+                <div *ngIf="players[0].general">{{players[0].general.name}}
+                    <img (click)="deletStocks(0, players[0].general)" *ngIf="players[0].general.stocks > 0" src="..\assets\graphics\stocks\{{players[0].general.fileName}}">
+                    <img (click)="deletStocks(1, players[0].general)" *ngIf="players[0].general.stocks > 1" src="..\assets\graphics\stocks\{{players[0].general.fileName}}">
+                    <img (click)="deletStocks(2, players[0].general)" *ngIf="players[0].general.stocks > 2" src="..\assets\graphics\stocks\{{players[0].general.fileName}}">
+                    <img (click)="deletStocks(3, players[0].general)" *ngIf="players[0].general.stocks > 3" src="..\assets\graphics\stocks\{{players[0].general.fileName}}">
+                </div>
+            </h3>
+            <h3>Colonel:
+                <div *ngIf="players[0].colonel"> {{players[0].colonel.name}}
+                    <img (click)="deletStocks(0, players[0].colonel)" *ngIf="players[0].colonel.stocks > 0" src="..\assets\graphics\stocks\{{players[0].colonel.fileName}}">
+                    <img (click)="deletStocks(1, players[0].colonel)" *ngIf="players[0].colonel.stocks > 1" src="..\assets\graphics\stocks\{{players[0].colonel.fileName}}">
+                    <img (click)="deletStocks(2, players[0].colonel)" *ngIf="players[0].colonel.stocks > 2" src="..\assets\graphics\stocks\{{players[0].colonel.fileName}}">
+                    <img (click)="deletStocks(3, players[0].colonel)" *ngIf="players[0].colonel.stocks > 3" src="..\assets\graphics\stocks\{{players[0].colonel.fileName}}">
+                </div>
+            </h3>
+            <h3>Major:
+                <div *ngIf="players[0].major"> {{players[0].major.name}}
+                    <img (click)="deletStocks(0, players[0].major)" *ngIf="players[0].major.stocks > 0" src="..\assets\graphics\stocks\{{players[0].major.fileName}}">
+                    <img (click)="deletStocks(1, players[0].major)" *ngIf="players[0].major.stocks > 1" src="..\assets\graphics\stocks\{{players[0].major.fileName}}">
+                    <img (click)="deletStocks(2, players[0].major)" *ngIf="players[0].major.stocks > 2" src="..\assets\graphics\stocks\{{players[0].major.fileName}}">
+                    <img (click)="deletStocks(3, players[0].major)" *ngIf="players[0].major.stocks > 3" src="..\assets\graphics\stocks\{{players[0].major.fileName}}">
+                </div>
+            </h3>
+            <h3>Captain:
+                <div *ngIf="players[0].captain"> {{players[0].captain.name}}
+                    <img (click)="deletStocks(0, players[0].captain)" *ngIf="players[0].captain.stocks > 0" src="..\assets\graphics\stocks\{{players[0].captain.fileName}}">
+                    <img (click)="deletStocks(1, players[0].captain)" *ngIf="players[0].captain.stocks > 1" src="..\assets\graphics\stocks\{{players[0].captain.fileName}}">
+                    <img (click)="deletStocks(2, players[0].captain)" *ngIf="players[0].captain.stocks > 2" src="..\assets\graphics\stocks\{{players[0].captain.fileName}}">
+                    <img (click)="deletStocks(3, players[0].captain)" *ngIf="players[0].captain.stocks > 3" src="..\assets\graphics\stocks\{{players[0].captain.fileName}}">
+                </div>
+            </h3>
+            <h3>Sergeant:
+                <div *ngIf="players[0].sergeant"> {{players[0].sergeant.name}}
+                    <img (click)="deletStocks(0, players[0].sergeant)" *ngIf="players[0].sergeant.stocks > 0" src="..\assets\graphics\stocks\{{players[0].sergeant.fileName}}">
+                    <img (click)="deletStocks(1, players[0].sergeant)" *ngIf="players[0].sergeant.stocks > 1" src="..\assets\graphics\stocks\{{players[0].sergeant.fileName}}">
+                    <img (click)="deletStocks(2, players[0].sergeant)" *ngIf="players[0].sergeant.stocks > 2" src="..\assets\graphics\stocks\{{players[0].sergeant.fileName}}">
+                    <img (click)="deletStocks(3, players[0].sergeant)" *ngIf="players[0].sergeant.stocks > 3" src="..\assets\graphics\stocks\{{players[0].sergeant.fileName}}">
+                </div>
+            </h3>
+            <h3>Private:
+                <div *ngIf="players[0].private"> {{players[0].private.name}}
+                    <img (click)="deletStocks(0, players[0].private)" *ngIf="players[0].private.stocks > 0" src="..\assets\graphics\stocks\{{players[0].private.fileName}}">
+                    <img (click)="deletStocks(1, players[0].private)" *ngIf="players[0].private.stocks > 1" src="..\assets\graphics\stocks\{{players[0].private.fileName}}">
+                    <img (click)="deletStocks(2, players[0].private)" *ngIf="players[0].private.stocks > 2" src="..\assets\graphics\stocks\{{players[0].private.fileName}}">
+                    <img (click)="deletStocks(3, players[0].private)" *ngIf="players[0].private.stocks > 3" src="..\assets\graphics\stocks\{{players[0].private.fileName}}">
+                </div>
+            </h3>
+        </li>
+    </div>
+    <div class="crew1" *ngIf="numberOfPlayers > 1">
+        <li>
+            <div *ngIf="players[0]">
+                <h2>{{players[1].name}}</h2>
+            </div>
+            <h3>General:
+                <div *ngIf="players[1].general">{{players[1].general.name}}
+                    <img (click)="deletStocks(0, players[1].general)" *ngIf="players[1].general.stocks > 0" src="..\assets\graphics\stocks\{{players[1].general.fileName}}">
+                    <img (click)="deletStocks(1, players[1].general)" *ngIf="players[1].general.stocks > 1" src="..\assets\graphics\stocks\{{players[1].general.fileName}}">
+                    <img (click)="deletStocks(2, players[1].general)" *ngIf="players[1].general.stocks > 2" src="..\assets\graphics\stocks\{{players[1].general.fileName}}">
+                    <img (click)="deletStocks(3, players[1].general)" *ngIf="players[1].general.stocks > 3" src="..\assets\graphics\stocks\{{players[1].general.fileName}}">
+                </div>
+            </h3>
+            <h3>Colonel:
+                <div *ngIf="players[1].colonel"> {{players[1].colonel.name}}
+                    <img (click)="deletStocks(0, players[1].colonel)" *ngIf="players[1].colonel.stocks > 0" src="..\assets\graphics\stocks\{{players[1].colonel.fileName}}">
+                    <img (click)="deletStocks(1, players[1].colonel)" *ngIf="players[1].colonel.stocks > 1" src="..\assets\graphics\stocks\{{players[1].colonel.fileName}}">
+                    <img (click)="deletStocks(2, players[1].colonel)" *ngIf="players[1].colonel.stocks > 2" src="..\assets\graphics\stocks\{{players[1].colonel.fileName}}">
+                    <img (click)="deletStocks(3, players[1].colonel)" *ngIf="players[1].colonel.stocks > 3" src="..\assets\graphics\stocks\{{players[1].colonel.fileName}}">
+                </div>
+            </h3>
+            <h3>Major:
+                <div *ngIf="players[1].major"> {{players[1].major.name}}
+                    <img (click)="deletStocks(0, players[1].major)" *ngIf="players[1].major.stocks > 0" src="..\assets\graphics\stocks\{{players[1].major.fileName}}">
+                    <img (click)="deletStocks(1, players[1].major)" *ngIf="players[1].major.stocks > 1" src="..\assets\graphics\stocks\{{players[1].major.fileName}}">
+                    <img (click)="deletStocks(2, players[1].major)" *ngIf="players[1].major.stocks > 2" src="..\assets\graphics\stocks\{{players[1].major.fileName}}">
+                    <img (click)="deletStocks(3, players[1].major)" *ngIf="players[1].major.stocks > 3" src="..\assets\graphics\stocks\{{players[1].major.fileName}}">
+                </div>
+            </h3>
+            <h3>Captain:
+                <div *ngIf="players[1].captain"> {{players[1].captain.name}}
+                    <img (click)="deletStocks(0, players[1].captain)" *ngIf="players[1].captain.stocks > 0" src="..\assets\graphics\stocks\{{players[1].captain.fileName}}">
+                    <img (click)="deletStocks(1, players[1].captain)" *ngIf="players[1].captain.stocks > 1" src="..\assets\graphics\stocks\{{players[1].captain.fileName}}">
+                    <img (click)="deletStocks(2, players[1].captain)" *ngIf="players[1].captain.stocks > 2" src="..\assets\graphics\stocks\{{players[1].captain.fileName}}">
+                    <img (click)="deletStocks(3, players[1].captain)" *ngIf="players[1].captain.stocks > 3" src="..\assets\graphics\stocks\{{players[1].captain.fileName}}">
+                </div>
+            </h3>
+            <h3>Sergeant:
+                <div *ngIf="players[1].sergeant"> {{players[1].sergeant.name}}
+                    <img (click)="deletStocks(0, players[1].sergeant)" *ngIf="players[1].sergeant.stocks > 0" src="..\assets\graphics\stocks\{{players[1].sergeant.fileName}}">
+                    <img (click)="deletStocks(1, players[1].sergeant)" *ngIf="players[1].sergeant.stocks > 1" src="..\assets\graphics\stocks\{{players[1].sergeant.fileName}}">
+                    <img (click)="deletStocks(2, players[1].sergeant)" *ngIf="players[1].sergeant.stocks > 2" src="..\assets\graphics\stocks\{{players[1].sergeant.fileName}}">
+                    <img (click)="deletStocks(3, players[1].sergeant)" *ngIf="players[1].sergeant.stocks > 3" src="..\assets\graphics\stocks\{{players[1].sergeant.fileName}}">
+                </div>
+            </h3>
+            <h3>Private:
+                <div *ngIf="players[1].private"> {{players[1].private.name}}
+                    <img (click)="deletStocks(0, players[1].private)" *ngIf="players[1].private.stocks > 0" src="..\assets\graphics\stocks\{{players[1].private.fileName}}">
+                    <img (click)="deletStocks(1, players[1].private)" *ngIf="players[1].private.stocks > 1" src="..\assets\graphics\stocks\{{players[1].private.fileName}}">
+                    <img (click)="deletStocks(2, players[1].private)" *ngIf="players[1].private.stocks > 2" src="..\assets\graphics\stocks\{{players[1].private.fileName}}">
+                    <img (click)="deletStocks(3, players[1].private)" *ngIf="players[1].private.stocks > 3" src="..\assets\graphics\stocks\{{players[1].private.fileName}}">
+                </div>
+            </h3>
+        </li>
+    </div>
+    <div class="crew2" *ngIf="numberOfPlayers > 2">
+        <li>
+            <div *ngIf="players[2]">
+                <h2>{{players[2].name}}</h2>
+            </div>
+            <h3>General:
+                <div *ngIf="players[2].general">{{players[2].general.name}}
+                    <img (click)="deletStocks(0, players[2].general)" *ngIf="players[2].general.stocks > 0" src="..\assets\graphics\stocks\{{players[2].general.fileName}}">
+                    <img (click)="deletStocks(1, players[2].general)" *ngIf="players[2].general.stocks > 1" src="..\assets\graphics\stocks\{{players[2].general.fileName}}">
+                    <img (click)="deletStocks(2, players[2].general)" *ngIf="players[2].general.stocks > 2" src="..\assets\graphics\stocks\{{players[2].general.fileName}}">
+                    <img (click)="deletStocks(3, players[2].general)" *ngIf="players[2].general.stocks > 3" src="..\assets\graphics\stocks\{{players[2].general.fileName}}">
+                </div>
+            </h3>
+            <h3>Colonel:
+                <div *ngIf="players[2].colonel"> {{players[2].colonel.name}}
+                    <img (click)="deletStocks(0, players[2].colonel)" *ngIf="players[2].colonel.stocks > 0" src="..\assets\graphics\stocks\{{players[2].colonel.fileName}}">
+                    <img (click)="deletStocks(1, players[2].colonel)" *ngIf="players[2].colonel.stocks > 1" src="..\assets\graphics\stocks\{{players[2].colonel.fileName}}">
+                    <img (click)="deletStocks(2, players[2].colonel)" *ngIf="players[2].colonel.stocks > 2" src="..\assets\graphics\stocks\{{players[2].colonel.fileName}}">
+                    <img (click)="deletStocks(3, players[2].colonel)" *ngIf="players[2].colonel.stocks > 3" src="..\assets\graphics\stocks\{{players[2].colonel.fileName}}">
+                </div>
+            </h3>
+            <h3>Major:
+                <div *ngIf="players[2].major"> {{players[2].major.name}}
+                    <img (click)="deletStocks(0, players[2].major)" *ngIf="players[2].major.stocks > 0" src="..\assets\graphics\stocks\{{players[2].major.fileName}}">
+                    <img (click)="deletStocks(1, players[2].major)" *ngIf="players[2].major.stocks > 1" src="..\assets\graphics\stocks\{{players[2].major.fileName}}">
+                    <img (click)="deletStocks(2, players[2].major)" *ngIf="players[2].major.stocks > 2" src="..\assets\graphics\stocks\{{players[2].major.fileName}}">
+                    <img (click)="deletStocks(3, players[2].major)" *ngIf="players[2].major.stocks > 3" src="..\assets\graphics\stocks\{{players[2].major.fileName}}">
+                </div>
+            </h3>
+            <h3>Captain:
+                <div *ngIf="players[2].captain"> {{players[2].captain.name}}
+                    <img (click)="deletStocks(0, players[2].captain)" *ngIf="players[2].captain.stocks > 0" src="..\assets\graphics\stocks\{{players[2].captain.fileName}}">
+                    <img (click)="deletStocks(1, players[2].captain)" *ngIf="players[2].captain.stocks > 1" src="..\assets\graphics\stocks\{{players[2].captain.fileName}}">
+                    <img (click)="deletStocks(2, players[2].captain)" *ngIf="players[2].captain.stocks > 2" src="..\assets\graphics\stocks\{{players[2].captain.fileName}}">
+                    <img (click)="deletStocks(3, players[2].captain)" *ngIf="players[2].captain.stocks > 3" src="..\assets\graphics\stocks\{{players[2].captain.fileName}}">
+                </div>
+            </h3>
+            <h3>Sergeant:
+                <div *ngIf="players[2].sergeant"> {{players[2].sergeant.name}}
+                    <img (click)="deletStocks(0, players[2].sergeant)" *ngIf="players[2].sergeant.stocks > 0" src="..\assets\graphics\stocks\{{players[2].sergeant.fileName}}">
+                    <img (click)="deletStocks(1, players[2].sergeant)" *ngIf="players[2].sergeant.stocks > 1" src="..\assets\graphics\stocks\{{players[2].sergeant.fileName}}">
+                    <img (click)="deletStocks(2, players[2].sergeant)" *ngIf="players[2].sergeant.stocks > 2" src="..\assets\graphics\stocks\{{players[2].sergeant.fileName}}">
+                    <img (click)="deletStocks(3, players[2].sergeant)" *ngIf="players[2].sergeant.stocks > 3" src="..\assets\graphics\stocks\{{players[2].sergeant.fileName}}">
+                </div>
+            </h3>
+            <h3>Private:
+                <div *ngIf="players[2].private"> {{players[2].private.name}}
+                    <img (click)="deletStocks(0, players[2].private)" *ngIf="players[2].private.stocks > 0" src="..\assets\graphics\stocks\{{players[2].private.fileName}}">
+                    <img (click)="deletStocks(1, players[2].private)" *ngIf="players[2].private.stocks > 1" src="..\assets\graphics\stocks\{{players[2].private.fileName}}">
+                    <img (click)="deletStocks(2, players[2].private)" *ngIf="players[2].private.stocks > 2" src="..\assets\graphics\stocks\{{players[2].private.fileName}}">
+                    <img (click)="deletStocks(3, players[2].private)" *ngIf="players[2].private.stocks > 3" src="..\assets\graphics\stocks\{{players[2].private.fileName}}">
+                </div>
+            </h3>
+        </li>
+    </div>?
+    <div class="crew3" *ngIf="numberOfPlayers > 3">
+        <li>
+            <div *ngIf="players[3]">
+                <h3>{{players[3].name}}</h3>
+            </div>
+            <h3>General:
+                <div *ngIf="players[3].general">{{players[3].general.name}}
+                    <img (click)="deletStocks(0, players[3].general)" *ngIf="players[3].general.stocks > 0" src="..\assets\graphics\stocks\{{players[3].general.fileName}}">
+                    <img (click)="deletStocks(1, players[3].general)" *ngIf="players[3].general.stocks > 1" src="..\assets\graphics\stocks\{{players[3].general.fileName}}">
+                    <img (click)="deletStocks(2, players[3].general)" *ngIf="players[3].general.stocks > 2" src="..\assets\graphics\stocks\{{players[3].general.fileName}}">
+                    <img (click)="deletStocks(3, players[3].general)" *ngIf="players[3].general.stocks > 3" src="..\assets\graphics\stocks\{{players[3].general.fileName}}">
+                </div>
+            </h3>
+            <h3>Colonel:
+                <div *ngIf="players[3].colonel"> {{players[3].colonel.name}}
+                    <img (click)="deletStocks(0, players[3].colonel)" *ngIf="players[3].colonel.stocks > 0" src="..\assets\graphics\stocks\{{players[3].colonel.fileName}}">
+                    <img (click)="deletStocks(1, players[3].colonel)" *ngIf="players[3].colonel.stocks > 1" src="..\assets\graphics\stocks\{{players[3].colonel.fileName}}">
+                    <img (click)="deletStocks(2, players[3].colonel)" *ngIf="players[3].colonel.stocks > 2" src="..\assets\graphics\stocks\{{players[3].colonel.fileName}}">
+                    <img (click)="deletStocks(3, players[3].colonel)" *ngIf="players[3].colonel.stocks > 3" src="..\assets\graphics\stocks\{{players[3].colonel.fileName}}">
+                </div>
+            </h3>
+            <h3>Major:
+                <div *ngIf="players[3].major"> {{players[3].major.name}}
+                    <img (click)="deletStocks(0, players[3].major)" *ngIf="players[3].major.stocks > 0" src="..\assets\graphics\stocks\{{players[3].major.fileName}}">
+                    <img (click)="deletStocks(1, players[3].major)" *ngIf="players[3].major.stocks > 1" src="..\assets\graphics\stocks\{{players[3].major.fileName}}">
+                    <img (click)="deletStocks(2, players[3].major)" *ngIf="players[3].major.stocks > 2" src="..\assets\graphics\stocks\{{players[3].major.fileName}}">
+                    <img (click)="deletStocks(3, players[3].major)" *ngIf="players[3].major.stocks > 3" src="..\assets\graphics\stocks\{{players[3].major.fileName}}">
+                </div>
+            </h3>
+            <h3>Captain:
+                <div *ngIf="players[3].captain"> {{players[3].captain.name}}
+                    <img (click)="deletStocks(0, players[3].captain)" *ngIf="players[3].captain.stocks > 0" src="..\assets\graphics\stocks\{{players[3].captain.fileName}}">
+                    <img (click)="deletStocks(1, players[3].captain)" *ngIf="players[3].captain.stocks > 1" src="..\assets\graphics\stocks\{{players[3].captain.fileName}}">
+                    <img (click)="deletStocks(2, players[3].captain)" *ngIf="players[3].captain.stocks > 2" src="..\assets\graphics\stocks\{{players[3].captain.fileName}}">
+                    <img (click)="deletStocks(3, players[3].captain)" *ngIf="players[3].captain.stocks > 3" src="..\assets\graphics\stocks\{{players[3].captain.fileName}}">
+                </div>
+            </h3>
+            <h3>Sergeant:
+                <div *ngIf="players[3].sergeant"> {{players[3].sergeant.name}}
+                    <img (click)="deletStocks(0, players[3].sergeant)" *ngIf="players[3].sergeant.stocks > 0" src="..\assets\graphics\stocks\{{players[3].sergeant.fileName}}">
+                    <img (click)="deletStocks(1, players[3].sergeant)" *ngIf="players[3].sergeant.stocks > 1" src="..\assets\graphics\stocks\{{players[3].sergeant.fileName}}">
+                    <img (click)="deletStocks(2, players[3].sergeant)" *ngIf="players[3].sergeant.stocks > 2" src="..\assets\graphics\stocks\{{players[3].sergeant.fileName}}">
+                    <img (click)="deletStocks(3, players[3].sergeant)" *ngIf="players[3].sergeant.stocks > 3" src="..\assets\graphics\stocks\{{players[3].sergeant.fileName}}">
+                </div>
+            </h3>
+            <h3>Private:
+                <div *ngIf="players[3].private"> {{players[3].private.name}}
+                    <img (click)="deletStocks(0, players[3].private)" *ngIf="players[3].private.stocks > 0" src="..\assets\graphics\stocks\{{players[3].private.fileName}}">
+                    <img (click)="deletStocks(1, players[3].private)" *ngIf="players[3].private.stocks > 1" src="..\assets\graphics\stocks\{{players[3].private.fileName}}">
+                    <img (click)="deletStocks(2, players[3].private)" *ngIf="players[3].private.stocks > 2" src="..\assets\graphics\stocks\{{players[3].private.fileName}}">
+                    <img (click)="deletStocks(3, players[3].private)" *ngIf="players[3].private.stocks > 3" src="..\assets\graphics\stocks\{{players[3].private.fileName}}">
+                </div>
+            </h3>
+        </li>
+    </div>
