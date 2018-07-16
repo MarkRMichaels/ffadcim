@@ -1,0 +1,30 @@
+<img *ngIf="numberOfPlayers==undefined" (click)="numberOfPlayers=1" src="..\assets\graphics\tokens\p1.png">
+<img *ngIf="numberOfPlayers==undefined" (click)="numberOfPlayers=2" src="..\assets\graphics\tokens\p2.png">
+<img *ngIf="numberOfPlayers==undefined" (click)="numberOfPlayers=3" src="..\assets\graphics\tokens\p3.png">
+<img *ngIf="numberOfPlayers==undefined" (click)="numberOfPlayers=4" src="..\assets\graphics\tokens\p4.png">
+
+
+<div *ngIf="namesOfPlayersSelected === false">
+<div *ngIf="numberOfPlayers>0">
+Player 1:  <input #player0textbox type="text" [(ngModel)]="player0Name" required>
+</div>
+<div *ngIf="numberOfPlayers>1">
+Player 2: <input #player1textbox type="text" [(ngModel)]="player1Name" required>
+</div>
+<div *ngIf="numberOfPlayers>2">
+Player 3: <input #player2textbox type="text" [(ngModel)]="player2Name" required>
+</div>
+<div *ngIf="numberOfPlayers>3">
+Player 4: <input #player3textbox type="text" [(ngModel)]="player3Name" required>
+</div>
+
+<br>
+
+<button (click)="namesOfPlayersSelected = true">Submit</button>
+</div>
+
+
+
+{{numberOfPlayers}}
+{{namesOfPlayersSelected}} 
+{{player0Name}} {{player1Name}} {{player2Name}} {{player3Name}}

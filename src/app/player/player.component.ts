@@ -20,7 +20,7 @@ export class PlayerComponent implements OnInit {
   constructor(public playerService: PlayerService) {
     this.players = this.playerService.getPlayers();
 
-    this.numberOfPlayers = 2;
+    this.numberOfPlayers;
     this.playerIndex = -1;
 
   }

@@ -8,6 +8,7 @@ import { CharacterComponent } from './character/character.component';
 import { FormsModule } from '@angular/forms';
 
 import { PlayerComponent } from './player/player.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { PlayerComponent } from './player/player.component';
     AppComponent,
     CharacterComponent,
     PlayerComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
