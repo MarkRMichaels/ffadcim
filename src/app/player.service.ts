@@ -8,6 +8,9 @@ import { Character } from './character';
 export class PlayerService {
   players: Player[] = [];
   characterSelected = false;
+  numberOfPlayers;
+  playersLoaded = false;
+
   getPlayers() {
     return this.players;
   }
@@ -20,10 +23,16 @@ export class PlayerService {
     this.characterSelected = true;
   }
 
+  addPlayer(playerName, totalNumberOfPlayers){
+    this.numberOfPlayers = totalNumberOfPlayers;
+    this.players.push(new Player(playerName));
+    console.log(playerName + " added.")
+    console.log(this.players.toString);
+    this.playersLoaded = true;
+    console.log("players loaded: " + this.playersLoaded);
+  }
+
   constructor() { 
-    this.players.push(new Player("Mark"));
-    this.players.push(new Player("Brian"));
-    this.players.push(new Player("Jake"));
-    this.players.push(new Player("Boyd"));
+
   }
 }

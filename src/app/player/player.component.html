@@ -1,20 +1,3 @@
-<!-- <span>
-    Player1:
-    <input [(ngModel)]="players[0].name" placeholder="Player1" />
-</span>
-<span>
-    Player2:
-    <input [(ngModel)]="players[1].name" placeholder="Player2" />
-</span>
-<span>
-    Player3:
-    <input [(ngModel)]="players[2].name" placeholder="Player3" />
-</span>
-<span>
-    Player4:
-    <input [(ngModel)]="players[3].name" placeholder="Player4" />
-</span> -->
-
 <ul class="crews-box">
     <div class="crew0" *ngIf="numberOfPlayers > 0">
         <li>
@@ -73,7 +56,7 @@
     </div>
     <div class="crew1" *ngIf="numberOfPlayers > 1">
         <li>
-            <div *ngIf="players[0]">
+            <div *ngIf="players[1]">
                 <h2>{{players[1].name}}</h2>
             </div>
             <h3>General:
@@ -184,7 +167,7 @@
     <div class="crew3" *ngIf="numberOfPlayers > 3">
         <li>
             <div *ngIf="players[3]">
-                <h3>{{players[3].name}}</h3>
+                <h2>{{players[3].name}}</h2>
             </div>
             <h3>General:
                 <div *ngIf="players[3].general">{{players[3].general.name}}

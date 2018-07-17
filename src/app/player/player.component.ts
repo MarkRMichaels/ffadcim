@@ -3,6 +3,7 @@ import { Player } from '../player';
 import { PlayerService } from '../player.service';
 import { Character } from '../character';
 
+
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
@@ -12,39 +13,49 @@ export class PlayerComponent implements OnInit {
   @Input() character: Character;
   players: Player[];
   charCounter: number;
-  numberOfPlayers;
+  @Input() numberOfPlayers;
   playerIndex;
-  drafting;
+  drafting = false;
   Stocks;
+  
 
   constructor(public playerService: PlayerService) {
+    this.playerIndex = 0;
+  }
+
+  initPlayers(){
+    console.log("Players Initialised");
     this.players = this.playerService.getPlayers();
-
-    this.numberOfPlayers;
-    this.playerIndex = -1;
-
+    this.numberOfPlayers = this.playerService.numberOfPlayers;
+   
+    this.playerService.playersLoaded = false;
+    this.drafting = true;
   }
 
   setCharacter(char: Character) {
-    if(char === undefined)
-      this.playerIndex = -1;
-    else if (this.players[this.playerIndex].general === undefined)
-      this.players[this.playerIndex].general = char;
-    else if (this.players[this.playerIndex].colonel === undefined)
-      this.players[this.playerIndex].colonel = char;
-    else if (this.players[this.playerIndex].major === undefined)
-      this.players[this.playerIndex].major = char;
-    else if (this.players[this.playerIndex].captain === undefined)
-      this.players[this.playerIndex].captain = char;
-    else if (this.players[this.playerIndex].sergeant === undefined)
-      this.players[this.playerIndex].sergeant = char;
-    else if (this.players[this.playerIndex].private === undefined)
-      this.players[this.playerIndex].private = char;
+    if(this.drafting){
+      console.log("set char?");
+      console.log(this.playerIndex);
+      if(char === undefined)
+        this.playerIndex = -1;
+      else if (this.players[this.playerIndex].general === undefined)
+        this.players[this.playerIndex].general = char;
+      else if (this.players[this.playerIndex].colonel === undefined)
+        this.players[this.playerIndex].colonel = char;
+      else if (this.players[this.playerIndex].major === undefined)
+        this.players[this.playerIndex].major = char;
+      else if (this.players[this.playerIndex].captain === undefined)
+        this.players[this.playerIndex].captain = char;
+      else if (this.players[this.playerIndex].sergeant === undefined)
+        this.players[this.playerIndex].sergeant = char;
+      else if (this.players[this.playerIndex].private === undefined)
+        this.players[this.playerIndex].private = char;
 
-    if(this.playerIndex === this.numberOfPlayers - 1)
-      this.playerIndex = 0;
-    else
-      this.playerIndex++;
+      if(this.playerIndex === this.numberOfPlayers - 1)
+        this.playerIndex = 0;
+      else
+        this.playerIndex++;
+    }
   }
 
   deletStocks(amount: number, target: Character){
@@ -64,13 +75,12 @@ export class PlayerComponent implements OnInit {
 
   ngOnChanges() {
     this.setCharacter(this.character);
-    // this.players.forEach(function(element){
-    //   this.player.general.Stocks = 0; 
-    //   this.player.colonel.Stocks = 0; 
-    //   this.player.major.Stocks = 0; 
-    //   this.player.captain.Stocks = 0;
-    //   this.player.sergeant.Stocks = 0;
-    //   this.player.private.Stocks = 0;
-    //   });
   }
+
+  ngDoCheck(){
+    //console.log();
+    if(this.playerService.playersLoaded){
+      this.initPlayers();
+  }
+  
 }
