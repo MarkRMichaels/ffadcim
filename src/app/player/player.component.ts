@@ -57,13 +57,7 @@ export class PlayerComponent implements OnInit {
   }
 
   deletStocks(amount: number, target: Character) {
-    console.log(target.stocks);
-
-    while (target.stocks > amount) {
-      target.stocks--;
-    }
-
-    console.log(target.stocks);
+    target.stocks = amount;
   }
 
   ngOnInit() {
