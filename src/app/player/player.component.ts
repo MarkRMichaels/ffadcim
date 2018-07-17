@@ -15,30 +15,23 @@ export class PlayerComponent implements OnInit {
   charCounter: number;
   @Input() numberOfPlayers;
   playerIndex;
-  drafting = false;
   Stocks;
-  
+
 
   constructor(public playerService: PlayerService) {
     this.playerIndex = 0;
   }
 
-  initPlayers(){
+  initPlayers() {
     console.log("Players Initialised");
     this.players = this.playerService.getPlayers();
     this.numberOfPlayers = this.playerService.numberOfPlayers;
-   
     this.playerService.playersLoaded = false;
-    this.drafting = true;
   }
 
   setCharacter(char: Character) {
-    if(this.drafting){
-      console.log("set char?");
-      console.log(this.playerIndex);
-      if(char === undefined)
-        this.playerIndex = -1;
-      else if (this.players[this.playerIndex].general === undefined)
+    if (this.playerService.drafting) {
+      if (this.players[this.playerIndex].general === undefined)
         this.players[this.playerIndex].general = char;
       else if (this.players[this.playerIndex].colonel === undefined)
         this.players[this.playerIndex].colonel = char;
@@ -51,22 +44,26 @@ export class PlayerComponent implements OnInit {
       else if (this.players[this.playerIndex].private === undefined)
         this.players[this.playerIndex].private = char;
 
-      if(this.playerIndex === this.numberOfPlayers - 1)
+      //resets the player index when it assigns a char to the last player
+      if (this.playerIndex === this.numberOfPlayers - 1)
         this.playerIndex = 0;
       else
         this.playerIndex++;
+
+      if (this.players[this.numberOfPlayers - 1].private != undefined) {
+        this.playerService.drafting = false;
+      }
     }
   }
 
-  deletStocks(amount: number, target: Character){
-      console.log(target.stocks);
+  deletStocks(amount: number, target: Character) {
+    console.log(target.stocks);
 
-      while(target.stocks > amount)
-      {
-        target.stocks--;
-      }
+    while (target.stocks > amount) {
+      target.stocks--;
+    }
 
-      console.log(target.stocks); 
+    console.log(target.stocks);
   }
 
   ngOnInit() {
@@ -77,10 +74,10 @@ export class PlayerComponent implements OnInit {
     this.setCharacter(this.character);
   }
 
-  ngDoCheck(){
-    //console.log();
-    if(this.playerService.playersLoaded){
+  ngDoCheck() {
+    if (this.playerService.playersLoaded) {
       this.initPlayers();
+    }
   }
-  
+
 }

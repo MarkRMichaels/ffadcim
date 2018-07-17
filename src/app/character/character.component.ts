@@ -13,20 +13,31 @@ export class CharacterComponent implements OnInit {
  
   characters = CHARACTERS;
   selectedCharacter: Character;
+  display = false;
 
   onSelect(character: Character): Character {
-    
+    console.log(this.playerService.numberOfPlayers);
     this.selectedCharacter = character;
     this.playerService.iconClicked()
     this.characters.splice(this.characters.indexOf(this.selectedCharacter), 1);
     return character;
   }
 
-  constructor(private playerService: PlayerService) { }
+  constructor(public playerService: PlayerService) {
+    
+  }
 
   ngOnInit() {
 
   }
 
+  ngDoCheck() {
+    if(this.playerService.drafting === true)
+      this.display = true;
+    else
+      this.display = false;
+
+    console.log("draftiG? " + this.playerService.drafting);
+  }
 
 }

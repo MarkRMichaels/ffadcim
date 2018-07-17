@@ -1,3 +1,5 @@
+<h2 *ngIf="numberOfPlayers==undefined">How many players?</h2>
+
 <img *ngIf="numberOfPlayers==undefined" (click)="numberOfPlayers=1" src="..\assets\graphics\tokens\p1.png">
 <img *ngIf="numberOfPlayers==undefined" (click)="numberOfPlayers=2" src="..\assets\graphics\tokens\p2.png">
 <img *ngIf="numberOfPlayers==undefined" (click)="numberOfPlayers=3" src="..\assets\graphics\tokens\p3.png">

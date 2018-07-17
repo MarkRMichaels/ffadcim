@@ -10,6 +10,7 @@ export class PlayerService {
   characterSelected = false;
   numberOfPlayers;
   playersLoaded = false;
+  drafting = false;
 
   getPlayers() {
     return this.players;
@@ -26,10 +27,8 @@ export class PlayerService {
   addPlayer(playerName, totalNumberOfPlayers){
     this.numberOfPlayers = totalNumberOfPlayers;
     this.players.push(new Player(playerName));
-    console.log(playerName + " added.")
-    console.log(this.players.toString);
     this.playersLoaded = true;
-    console.log("players loaded: " + this.playersLoaded);
+    this.drafting = true;
   }
 
   constructor() { 

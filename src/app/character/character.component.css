@@ -1,5 +1,9 @@
 /* HeroesComponent's private CSS styles */
-
+.full {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
 .flex-box {
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;

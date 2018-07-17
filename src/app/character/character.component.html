@@ -1,5 +1,5 @@
-<h2>Characters</h2>
-<div class="flex-box">
+<div class="full">
+<div class="flex-box" *ngIf="display">
   <ul class="flex-list">
     <li *ngFor="let character of characters" 
     [class.selected]="character === selectedCharacter"
@@ -11,3 +11,4 @@
 
 
 <app-player [character]="selectedCharacter"></app-player>
+</div>
